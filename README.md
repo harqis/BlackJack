@@ -13,3 +13,5 @@ Tämän jälkeen peli jakaa jakajan kortit, minkä jälkeen katsotaan voittiko p
 Mahdolliset voitot maksetaan pelitilille.
 
 Jokaisen jaon jälkeen pelaajalta kysytään, haluaako hän uuden jaon.
+
+Peli voidaan aloittaa käynnistämällä main.py
