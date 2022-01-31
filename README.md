@@ -14,4 +14,7 @@ Mahdolliset voitot maksetaan pelitilille.
 
 Jokaisen jaon jälkeen pelaajalta kysytään, haluaako hän uuden jaon.
 
-Peli voidaan aloittaa käynnistämällä main.py
+Peli voidaan aloittaa käynnistämällä main.py.
+
+HUOM! Peli ei ole vielä täydellinen. Tilanteet, joissa pelaajalle tai jakajalle jaetaan kaksi ässää, saattavat toimia väärin.
+
