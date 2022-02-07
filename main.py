@@ -7,7 +7,7 @@ Created on Wed Jan 19 19:07:28 2022
 
 from player import Player
 from dealer import Dealer
-from game import BlackJackGame
+from game import blackjackgame
 
 # Welcome user
 print("Tervetuloa pelaamaan BlackJackia!")
@@ -34,8 +34,8 @@ while play:
         print("Panoksesi on enemmän kuin mitä sinulla on tilillä.")
         play = False
         break
-    
-    BlackJackGame(player, dealer, bet)
+
+    blackjackgame(player, dealer, bet)
     bankSituation = player.showbank()
     print(f"Pelimerkkejä jäljellä {bankSituation}.")    
     print("Pelataanko uudelleen (y)?")

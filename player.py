@@ -41,7 +41,7 @@ class Player:
 
     # Count card values together.
     def count_total(self):
-        total = [0,0]
+        total = [0, 0]
         for card in self.hand:
             total[0] += card.value[0]
             total[1] += card.value[1]
