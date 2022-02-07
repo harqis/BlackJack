@@ -12,6 +12,6 @@ Program starts by running main.py.
 
 !!! Game is currently in Finnish. The language will be changed to English soon.
 
-!!! (Currently trying to solve) Game logic is not currently perfect. If player or dealer gets 3 or 4 aces to hand, problems may occur.
+!!! (Currently trying to solve) Game logic is currently not perfect. If player or dealer gets 3 or 4 aces to hand, problems may occur.
 
 Things to be added: multiple players, analysis of winning probabilities, ability to decide when deck is shuffled and a GUI perhaps.
