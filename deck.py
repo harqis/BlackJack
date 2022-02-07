@@ -2,7 +2,7 @@
 """
 Created on Wed Jan 19 19:01:04 2022
 
-@author: Tommi
+@author: Tommi Kivinen
 """
 
 import random
@@ -10,7 +10,7 @@ from cards import Card, Ace
 
 #
 # Card deck, contains 4 of every 2-9 -valued card, 16 10-valued and four aces (1/11).
-# Overall card count 52
+# Overall card count is therefore 52.
 #
 
 class Deck:

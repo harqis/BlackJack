@@ -2,7 +2,7 @@
 """
 Created on Wed Jan 19 19:07:28 2022
 
-@author: Tommi
+@author: Tommi Kivinen
 """
 
 from player import Player
