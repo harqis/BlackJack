@@ -6,7 +6,6 @@ Created on Wed Jan 19 19:05:26 2022
 """
 
 from deck import Deck
-from operator import itemgetter
 
 
 def blackjackgame(player, dealer, bet):
