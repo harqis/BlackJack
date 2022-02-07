@@ -5,11 +5,12 @@ Created on Wed Jan 19 19:01:06 2022
 @author: Tommi Kivinen
 """
 
+
 #
 # Player class
 #
 
-class Player: 
+class Player:
     def __init__(self, name, bank):
         self.name = name
         self.bank = bank
@@ -17,7 +18,7 @@ class Player:
 
     # Draw a card.
     def draw(self, deck):
-        self.hand.append(deck.drawCard())
+        self.hand.append(deck.drawcard())
         return self
 
     # Reset hand to empty list.
@@ -45,5 +46,5 @@ class Player:
         for card in self.hand:
             total[0] += card.value[0]
             total[1] += card.value[1]
-            
+
         return total

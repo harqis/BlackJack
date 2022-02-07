@@ -11,7 +11,7 @@ Created on Wed Jan 19 19:01:03 2022
 
 class Card:
     def __init__(self, val):
-        #self.suit = suit
+        # self.suit = suit
         self.value = [val, val]
         
     def show(self):

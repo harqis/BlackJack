@@ -15,7 +15,7 @@ class Dealer:
         self.hand = []
         
     def draw(self, deck):
-        self.hand.append(deck.drawCard())
+        self.hand.append(deck.drawcard())
         return self
     
     def resethand(self):

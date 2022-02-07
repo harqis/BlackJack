@@ -44,7 +44,8 @@ while play:
     if answer == 'y':
         if bankSituation > 0:
             print("OK! Jaetaan kortit.")
-            #play = True
+            # play = True
+
         else:
             print("Pelitilisi on tyhjä, hävisit kaiken. Kasino kiittää!")
             play = False
