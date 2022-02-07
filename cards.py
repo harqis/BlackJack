@@ -25,7 +25,7 @@ class Card:
 
 class Ace:
     def __init__(self):
-        self.value = [1, 11]
+        self.value = (1, 11)
 
     def show(self):
         print(f"{self.value[0]} / {self.value[1]}")
