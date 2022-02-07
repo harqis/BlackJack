@@ -30,14 +30,14 @@ while play is True:
     # Panostus.
     print("Aseta panos:")
     bet = int(input())
-    bankSituation = player.showBank()
+    bankSituation = player.showbank()
     if bet > bankSituation:
         print("Panoksesi on enemmän kuin mitä sinulla on tilillä.")
         play = False
         break
     
     BlackJackGame(player, dealer, bet)
-    bankSituation = player.showBank()
+    bankSituation = player.showbank()
     print(f"Pelimerkkejä jäljellä {bankSituation}.")    
     print("Pelataanko uudelleen (y)?")
     answer = input()

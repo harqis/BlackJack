@@ -9,7 +9,8 @@ Created on Wed Jan 19 19:05:03 2022
 # Jakaja
 #
 
-class Dealer: 
+class Dealer:
+
     def __init__(self):
         self.hand = []
         
@@ -17,21 +18,21 @@ class Dealer:
         self.hand.append(deck.drawCard())
         return self
     
-    def resetHand(self):
+    def resethand(self):
         self.hand = []
     
-    def showHandBeginning(self):
+    def showhand_beginning(self):
         print("(Piilotettu kortti)")
         self.hand[1].show()
             
-    def showHand(self):
+    def showhand(self):
         for card in self.hand:
             card.show()
         print("=")
-        print(self.countTotal())
+        print(self.count_total())
     
-    def countTotal(self):
-        total = [0,0]
+    def count_total(self):
+        total = [0, 0]
         for card in self.hand:
             total[0] += card.value[0]
             total[1] += card.value[1]

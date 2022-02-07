@@ -21,26 +21,26 @@ class Player:
         return self
 
     # Reset hand to empty list.
-    def resetHand(self):
+    def resethand(self):
         self.hand = []
 
     # Show player's hand.
-    def showHand(self):
+    def showhand(self):
         for card in self.hand:
             card.show()
         print("=")
-        print(self.countTotal())
+        print(self.count_total())
 
     # Show player's bank account.
-    def showBank(self):
+    def showbank(self):
         return self.bank
 
     # Edit player's bank account.
-    def editBank(self, bet):
+    def editbank(self, bet):
         self.bank = self.bank + bet
 
     # Count card values together.
-    def countTotal(self):
+    def count_total(self):
         total = [0,0]
         for card in self.hand:
             total[0] += card.value[0]

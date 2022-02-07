@@ -18,8 +18,8 @@ def BlackJackGame(player, dealer, bet):
     dealerBusted = False
     
     # Nollataan kädet.
-    player.resetHand()
-    dealer.resetHand()
+    player.resethand()
+    dealer.resethand()
     
     # Luodaan pakka ja sekoitetaan kortit.
     deck = Deck()
@@ -35,13 +35,13 @@ def BlackJackGame(player, dealer, bet):
     
     # Näytetään kortit.
     print("Jakajan käsi:")
-    dealer.showHandBeginning()
+    dealer.showhand_beginning()
     
     print("Kätesi:")
-    player.showHand()
+    player.showhand()
 
     # Jos pelaaja saa blackjackin, skipataan pelaajan vuoro.    
-    playerGot21 = bool(player.countTotal()[1] == 21)
+    playerGot21 = bool(player.count_total()[1] == 21)
     
     if playerGot21 is False:
         
@@ -50,7 +50,7 @@ def BlackJackGame(player, dealer, bet):
         #
         
         playerCont = True
-        while playerCont is True:
+        while playerCont:
             print("Haluatko nostaa (y) vai jäädä tähän (n)")
             answer = input()
             
@@ -58,16 +58,16 @@ def BlackJackGame(player, dealer, bet):
             if answer == 'y':
                 print("Valitsit nostaa kortin.")
                 player.draw(deck)
-                player.showHand()
+                player.showhand()
     
-                playerHandTotal = player.countTotal()
+                playerHandTotal = player.count_total()
                 
                 # Jos pelaaja bustaa, hän häviää.
                 if min(playerHandTotal) > 21:
                     playerCont = False
                     print("Kätesi on yli 21. Hävisit.")
                     bet = bet - 2*bet
-                    player.editBank(bet)
+                    player.editbank(bet)
                     
                     playerLost = True
                  
@@ -86,8 +86,8 @@ def BlackJackGame(player, dealer, bet):
         #
         
         print("Jakajan vuoro.")
-        dealer.showHand()
-        dealerHandTotal = dealer.countTotal()
+        dealer.showhand()
+        dealerHandTotal = dealer.count_total()
         
         dealerCont = True
         
@@ -96,23 +96,23 @@ def BlackJackGame(player, dealer, bet):
             if  dealerHandTotal[0] < 17 and dealerHandTotal[1] < 17:
                 print("Jakajan käsi on alle 17, jakaja nostaa.")
                 dealer.draw(deck)
-                dealer.showHand()
+                dealer.showhand()
 
-                dealerHandTotal = dealer.countTotal()
+                dealerHandTotal = dealer.count_total()
                 
             elif  dealerHandTotal[0] < 17 and dealerHandTotal[1] > 21:
                 print("Jakajan käsi on alle 17, jakaja nostaa.")
                 dealer.draw(deck)
-                dealer.showHand()
+                dealer.showhand()
 
-                dealerHandTotal = dealer.countTotal()
+                dealerHandTotal = dealer.count_total()
             
             elif min(dealerHandTotal) > 21:
                 print("Jakajan käsi on yli 21, jakaja bustasi. Voitit!")
                 dealerCont = False
                 
                 dealerBusted = True
-                player.editBank(bet)
+                player.editbank(bet)
             
             else:                
                 dealerCont = False
@@ -124,23 +124,23 @@ def BlackJackGame(player, dealer, bet):
         
         if dealerBusted is False:
         
-            dealerHandTotal = dealer.countTotal()
-            playerHandTotal = player.countTotal()            
+            dealerHandTotal = dealer.count_total()
+            playerHandTotal = player.count_total()
             
             if dealerHandTotal[0] > max(playerHandTotal) or dealerHandTotal[1] > max(playerHandTotal):
                 print("Kätesi on pienempi kuin jakajalla. Hävisit.")
                 bet = bet - 2*bet
-                player.editBank(bet)
+                player.editbank(bet)
                 
             elif dealerHandTotal[0] > playerHandTotal[0] and playerHandTotal[1] > 21:
                 print("Kätesi on pienempi kuin jakajalla. Hävisit.")
                 bet = bet - 2*bet
-                player.editBank(bet)
+                player.editbank(bet)
             
             elif dealerHandTotal[1] > playerHandTotal[0] and playerHandTotal[1] > 21:
                 print("Kätesi on pienempi kuin jakajalla. Hävisit.")
                 bet = bet - 2*bet
-                player.editBank(bet)
+                player.editbank(bet)
             
             elif dealerHandTotal[0] == playerHandTotal[0] and playerHandTotal[1] > 21:
                 print("Pelaajan ja jakajan kädet ovat yhtä arvokkaat. Tasapeli.")
@@ -151,8 +151,8 @@ def BlackJackGame(player, dealer, bet):
             elif (dealerHandTotal[0] != 21 or dealerHandTotal[1] != 21) and playerGot21 is True:
                 print("Voitit Blackjackilla! Panoksesi maksetaan 2.5-kertaisena takaisin.")
                 bet = 1.5 * bet
-                player.editBank(bet)    
+                player.editbank(bet)
             
             else:
                 print("Kätesi on suurempi kuin jakajalla. Voitit!")
-                player.editBank(bet)
+                player.editbank(bet)
