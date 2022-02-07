@@ -30,7 +30,13 @@ class Player:
         for card in self.hand:
             card.show()
         print("=")
-        print(self.count_total())
+
+        count = self.count_total()
+        if count[0] == count[1]:
+            print(count[0])
+
+        else:
+            print(self.count_total())
 
     # Show player's bank account.
     def showbank(self):
