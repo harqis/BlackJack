@@ -8,11 +8,13 @@ Created on Wed Jan 19 19:05:26 2022
 from deck import Deck
 
 
-#
-# Peli.
-#
-
 def blackjackgame(player, dealer, bet):
+    """
+    Game logic function
+    :param player: player
+    :param dealer: dealer against player
+    :param bet: bet decided by player
+    """
     # Did player lose?
     playerlost = False
     dealerbusted = False
