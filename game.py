@@ -13,40 +13,40 @@ from deck import Deck
 
 def BlackJackGame(player, dealer, bet):
     
-    # Totuusarvo, hävisikö pelaaja.
+    # Did player lose?
     playerLost = False
     dealerBusted = False
     
-    # Nollataan kädet.
+    # Reset hands
     player.resethand()
     dealer.resethand()
     
-    # Luodaan pakka ja sekoitetaan kortit.
+    # Create deck and shuffle it
     deck = Deck()
     deck.shuffle()
     
-    # Jakaja nostaa kaksi korttia.
+    # Dealer draws two
     dealer.draw(deck)
     dealer.draw(deck)
     
-    # Pelaaja nostaa kaksi korttia.
+    # Player draws two
     player.draw(deck)
     player.draw(deck)
     
-    # Näytetään kortit.
+    # Show hands
     print("Jakajan käsi:")
     dealer.showhand_beginning()
     
     print("Kätesi:")
     player.showhand()
 
-    # Jos pelaaja saa blackjackin, skipataan pelaajan vuoro.    
+    # If player gets 21, skip turn
     playerGot21 = bool(player.count_total()[1] == 21)
     
     if playerGot21 is False:
         
         #
-        # Pelaajan vuoro, jos ei blackjackia.
+        # Player's turn (if no 21)
         #
         
         playerCont = True
@@ -54,7 +54,7 @@ def BlackJackGame(player, dealer, bet):
             print("Haluatko nostaa (y) vai jäädä tähän (n)")
             answer = input()
             
-            # Pelaaja nostaa.
+            # Player draws
             if answer == 'y':
                 print("Valitsit nostaa kortin.")
                 player.draw(deck)
@@ -62,7 +62,7 @@ def BlackJackGame(player, dealer, bet):
     
                 playerHandTotal = player.count_total()
                 
-                # Jos pelaaja bustaa, hän häviää.
+                # If over 21, player busts and loses
                 if min(playerHandTotal) > 21:
                     playerCont = False
                     print("Kätesi on yli 21. Hävisit.")
@@ -71,7 +71,7 @@ def BlackJackGame(player, dealer, bet):
                     
                     playerLost = True
                  
-            # Pelaaja päätti jäädä.
+            # decided to stay
             else:
                 playerCont = False
                 print("Valitsit jäädä tähän.")
@@ -82,7 +82,7 @@ def BlackJackGame(player, dealer, bet):
     if playerLost is False:
         
         #
-        # Jakajan vuoro, jos pelaaja ei bustannut.
+        # Dealer's turn
         #
         
         print("Jakajan vuoro.")
@@ -119,7 +119,7 @@ def BlackJackGame(player, dealer, bet):
                 print("Jakajan käsi on yli 16, jakaja jää.")
                        
         #
-        # Pelin loppuvaihe.
+        # Endgame, decide who won
         # 
         
         if dealerBusted is False:

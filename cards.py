@@ -6,7 +6,7 @@ Created on Wed Jan 19 19:01:03 2022
 """
 
 #
-# Kortti, arvoltaan 2-10
+# Card 2-10
 #
 
 class Card:
@@ -18,7 +18,7 @@ class Card:
         print(self.value[0])
         
 #
-# Ässä. Erikoistapaus, on arvoltaan 1 tai 11
+# Ace, either 1 or 11
 #
 
 class Ace:

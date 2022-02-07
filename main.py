@@ -9,8 +9,7 @@ from player import Player
 from dealer import Dealer
 from game import BlackJackGame
 
-# Tervehditään käyttäjää ja aloitetaan peli,
-# jos käyttäjä niin haluaa.
+# Welcome user
 print("Tervetuloa pelaamaan BlackJackia!")
 
 print("Syötä nimesi:")
@@ -25,9 +24,9 @@ dealer = Dealer()
 
 play = True
 
-while play is True:
+while play:
     
-    # Panostus.
+    # Betting stage
     print("Aseta panos:")
     bet = int(input())
     bankSituation = player.showbank()

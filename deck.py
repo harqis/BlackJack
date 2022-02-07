@@ -9,8 +9,8 @@ import random
 from cards import Card, Ace
 
 #
-# Korttipakka, sisältää 4 kpl jokaista 2-9 -korttia, 16 10-korttia ja 4 ässää (1/11).
-# Kortteja siis yhteensä 52 kpl.
+# Card deck, contains 4 of every 2-9 -valued card, 16 10-valued and four aces (1/11).
+# Overall card count 52
 #
 
 class Deck:
