@@ -6,6 +6,7 @@ Created on Wed Jan 19 19:05:26 2022
 """
 
 from deck import Deck
+from operator import itemgetter
 
 
 def blackjackgame(player, dealer, bet):
@@ -126,35 +127,24 @@ def blackjackgame(player, dealer, bet):
 
         if dealerbusted is False:
 
-            dealerhand_total = dealer.count_total()
-            playerhand_total = player.count_total()
+            dealer_bestcount = max(i for i in dealer.count_total() if i <= 21)
+            player_bestcount = max(i for i in player.count_total() if i <= 21)
 
-            if dealerhand_total[0] > max(playerhand_total) or dealerhand_total[1] > max(playerhand_total):
+            if player_bestcount > dealer_bestcount:
+
+                if player_bestcount == 21:
+                    print("Voitit Blackjackilla! Panoksesi maksetaan 2.5-kertaisena takaisin.")
+                    bet = 1.5 * bet
+                    player.editbank(bet)
+
+                else:
+                    print("Kätesi on suurempi kuin jakajalla. Voitit!")
+                    player.editbank(bet)
+
+            elif player_bestcount < dealer_bestcount:
                 print("Kätesi on pienempi kuin jakajalla. Hävisit.")
                 bet = bet - 2 * bet
-                player.editbank(bet)
-
-            elif dealerhand_total[0] > playerhand_total[0] and playerhand_total[1] > 21:
-                print("Kätesi on pienempi kuin jakajalla. Hävisit.")
-                bet = bet - 2 * bet
-                player.editbank(bet)
-
-            elif dealerhand_total[1] > playerhand_total[0] and playerhand_total[1] > 21:
-                print("Kätesi on pienempi kuin jakajalla. Hävisit.")
-                bet = bet - 2 * bet
-                player.editbank(bet)
-
-            elif dealerhand_total[0] == playerhand_total[0] and playerhand_total[1] > 21:
-                print("Pelaajan ja jakajan kädet ovat yhtä arvokkaat. Tasapeli.")
-
-            elif max(dealerhand_total) == max(playerhand_total):
-                print("Pelaajan ja jakajan kädet ovat yhtä arvokkaat. Tasapeli.")
-
-            elif (dealerhand_total[0] != 21 or dealerhand_total[1] != 21) and playergot21 is True:
-                print("Voitit Blackjackilla! Panoksesi maksetaan 2.5-kertaisena takaisin.")
-                bet = 1.5 * bet
                 player.editbank(bet)
 
             else:
-                print("Kätesi on suurempi kuin jakajalla. Voitit!")
-                player.editbank(bet)
+                print("Pelaajan ja jakajan kädet ovat yhtä arvokkaat. Tasapeli.")
