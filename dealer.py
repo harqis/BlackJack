@@ -7,7 +7,7 @@ Created on Wed Jan 19 19:05:03 2022
 
 
 #
-# Jakaja
+# Dealer, plays against Player
 #
 
 class Dealer:
