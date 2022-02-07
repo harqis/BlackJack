@@ -94,7 +94,7 @@ def blackjackgame(player, dealer, bet):
 
         dealer_continues = True
 
-        while dealer_continues is True:
+        while dealer_continues:
 
             if dealerhand_total[0] < 17 and dealerhand_total[1] < 17:
                 print("Jakajan käsi on alle 17, jakaja nostaa.")
