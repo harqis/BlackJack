@@ -127,24 +127,30 @@ def blackjackgame(player, dealer, bet):
 
         if dealerbusted is False:
 
+            # get best counts of hands under 22
             dealer_bestcount = max(i for i in dealer.count_total() if i <= 21)
             player_bestcount = max(i for i in player.count_total() if i <= 21)
 
+            # player won
             if player_bestcount > dealer_bestcount:
 
+                # blackjack win
                 if player_bestcount == 21:
                     print("Voitit Blackjackilla! Panoksesi maksetaan 2.5-kertaisena takaisin.")
                     bet = 1.5 * bet
                     player.editbank(bet)
 
+                # normal win
                 else:
                     print("Kätesi on suurempi kuin jakajalla. Voitit!")
                     player.editbank(bet)
 
+            # player lost
             elif player_bestcount < dealer_bestcount:
                 print("Kätesi on pienempi kuin jakajalla. Hävisit.")
                 bet = bet - 2 * bet
                 player.editbank(bet)
 
+            # draw
             else:
                 print("Pelaajan ja jakajan kädet ovat yhtä arvokkaat. Tasapeli.")
