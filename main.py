@@ -12,15 +12,15 @@ from game import blackjackgame
 
 def main():
     # Welcome user
-    print("Tervetuloa pelaamaan BlackJackia!")
+    print("Welcome to play Blackjack!")
 
-    print("Syötä nimesi:")
+    print("Please, enter your name:")
     player_name = input()
 
-    print(f"Moro {player_name}! Tarvitaan alkusijoitus. Paljonko pelimerkkejä laitetaan?")
+    print(f"Hi {player_name}! You need to make a deposit to play. How many chips do you want?")
     deposit = int(input())
 
-    print("Kiitos! Voidaan aloittaa peli.")
+    print("Thank you. Let's begin!")
     player = Player(player_name, deposit)
     dealer = Dealer()
 
@@ -29,36 +29,36 @@ def main():
     while play:
 
         # Betting stage
-        print("Aseta panos:")
+        print("Please, set your bet:")
         bet = int(input())
         bank_amount = player.showbank()
         if bet > bank_amount:
-            print("Panoksesi on enemmän kuin mitä sinulla on tilillä.")
+            print("You don't have enough chips!")
             # play = False
             break
 
         # run game
         blackjackgame(player, dealer, bet)
         bank_amount = player.showbank()
-        print(f"Pelimerkkejä jäljellä {bank_amount}.")
-        print("Pelataanko uudelleen (y)?")
+        print(f"You have {bank_amount} chips left.")
+        print("Play again? (y)?")
         answer = input()
 
         # user wants to play again
         if answer == 'y':
             if bank_amount > 0:
-                print("OK! Jaetaan kortit.")
+                print("OK! Let's deal the cards.")
                 # play = True
 
             # not enough money on bank account
             else:
-                print("Pelitilisi on tyhjä, hävisit kaiken. Kasino kiittää!")
+                print("You ran out of chips. Thank you for playing, come again!")
                 play = False
 
         # user did not want to play anymore
         else:
-            print("Kiitos pelaamisesta!")
-            print(f"Pelitilillesi jäi {bank_amount} pelimerkkiä.")
+            print("Thank you for playing!")
+            print(f"You left with {bank_amount} chips.")
             play = False
 
 
