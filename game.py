@@ -53,12 +53,12 @@ def blackjackgame(player, dealer, bet):
 
         player_continues = True
         while player_continues:
-            print("Haluatko nostaa (y) vai jäädä tähän (n)")
+            print("Hit (y) or stay (n) ?")
             answer = input()
 
             # Player draws
             if answer == 'y':
-                print("Valitsit nostaa kortin.")
+                print("You chose to hit.")
                 player.draw(deck)
                 player.showhand()
 
@@ -67,7 +67,7 @@ def blackjackgame(player, dealer, bet):
                 # If over 21, player busts and loses
                 if min(playerhand_total) > 21:
                     player_continues = False
-                    print("Kätesi on yli 21. Hävisit.")
+                    print("Your hand is over 21. You lost.")
                     bet = bet - 2 * bet
                     player.editbank(bet)
 
@@ -76,10 +76,10 @@ def blackjackgame(player, dealer, bet):
             # decided to stay
             else:
                 player_continues = False
-                print("Valitsit jäädä tähän.")
+                print("You chose to stay.")
 
     else:
-        print("BlackJack! Kätesi arvo on 21!")
+        print("Blackjack! Your hand is 21!")
 
     if playerlost is False:
 
@@ -87,7 +87,7 @@ def blackjackgame(player, dealer, bet):
         # Dealer's turn
         #
 
-        print("Jakajan vuoro.")
+        print("Dealer's turn.")
         dealer.showhand()
         dealerhand_total = dealer.count_total()
 
@@ -96,21 +96,21 @@ def blackjackgame(player, dealer, bet):
         while dealer_continues:
 
             if dealerhand_total[0] < 17 and dealerhand_total[1] < 17:
-                print("Jakajan käsi on alle 17, jakaja nostaa.")
+                print("Dealer's hand is under 17, dealer hits.")
                 dealer.draw(deck)
                 dealer.showhand()
 
                 dealerhand_total = dealer.count_total()
 
             elif dealerhand_total[0] < 17 and dealerhand_total[1] > 21:
-                print("Jakajan käsi on alle 17, jakaja nostaa.")
+                print("Dealer's hand is under 17, dealer hits.")
                 dealer.draw(deck)
                 dealer.showhand()
 
                 dealerhand_total = dealer.count_total()
 
             elif min(dealerhand_total) > 21:
-                print("Jakajan käsi on yli 21, jakaja bustasi. Voitit!")
+                print("Dealer's hand is over 21, dealer busted. You won!")
                 dealer_continues = False
 
                 dealerbusted = True
@@ -118,7 +118,7 @@ def blackjackgame(player, dealer, bet):
 
             else:
                 dealer_continues = False
-                print("Jakajan käsi on yli 16, jakaja jää.")
+                print("Dealer's hand is over 16, dealer stays.")
 
         #
         # Endgame, decide who won
@@ -135,21 +135,21 @@ def blackjackgame(player, dealer, bet):
 
                 # blackjack win
                 if player_bestcount == 21:
-                    print("Voitit Blackjackilla! Panoksesi maksetaan 2.5-kertaisena takaisin.")
+                    print("You won with Blackjack! You've been paid 2.5 : 1.")
                     bet = 1.5 * bet
                     player.editbank(bet)
 
                 # normal win
                 else:
-                    print("Kätesi on suurempi kuin jakajalla. Voitit!")
+                    print("Your hand is more valuable than dealer's. You won!")
                     player.editbank(bet)
 
             # player lost
             elif player_bestcount < dealer_bestcount:
-                print("Kätesi on pienempi kuin jakajalla. Hävisit.")
+                print("Your hand is less valuable than dealer's. You lost.")
                 bet = bet - 2 * bet
                 player.editbank(bet)
 
             # draw
             else:
-                print("Pelaajan ja jakajan kädet ovat yhtä arvokkaat. Tasapeli.")
+                print("Player's and dealer's hands are equal. Draw.")
