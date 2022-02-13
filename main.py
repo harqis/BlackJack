@@ -15,13 +15,13 @@ def main():
     print("Tervetuloa pelaamaan BlackJackia!")
 
     print("Syötä nimesi:")
-    playerName = input()
+    player_name = input()
 
-    print(f"Moro {playerName}! Tarvitaan alkusijoitus. Paljonko pelimerkkejä laitetaan?")
-    startDeposit = int(input())
+    print(f"Moro {player_name}! Tarvitaan alkusijoitus. Paljonko pelimerkkejä laitetaan?")
+    deposit = int(input())
 
     print("Kiitos! Voidaan aloittaa peli.")
-    player = Player(playerName, startDeposit)
+    player = Player(player_name, deposit)
     dealer = Dealer()
 
     play = True
@@ -31,30 +31,34 @@ def main():
         # Betting stage
         print("Aseta panos:")
         bet = int(input())
-        bankSituation = player.showbank()
-        if bet > bankSituation:
+        bank_amount = player.showbank()
+        if bet > bank_amount:
             print("Panoksesi on enemmän kuin mitä sinulla on tilillä.")
-            play = False
+            # play = False
             break
 
+        # run game
         blackjackgame(player, dealer, bet)
-        bankSituation = player.showbank()
-        print(f"Pelimerkkejä jäljellä {bankSituation}.")
+        bank_amount = player.showbank()
+        print(f"Pelimerkkejä jäljellä {bank_amount}.")
         print("Pelataanko uudelleen (y)?")
         answer = input()
 
+        # user wants to play again
         if answer == 'y':
-            if bankSituation > 0:
+            if bank_amount > 0:
                 print("OK! Jaetaan kortit.")
                 # play = True
 
+            # not enough money on bank account
             else:
                 print("Pelitilisi on tyhjä, hävisit kaiken. Kasino kiittää!")
                 play = False
 
+        # user did not want to play anymore
         else:
             print("Kiitos pelaamisesta!")
-            print(f"Pelitilillesi jäi {bankSituation} pelimerkkiä.")
+            print(f"Pelitilillesi jäi {bank_amount} pelimerkkiä.")
             play = False
 
 
