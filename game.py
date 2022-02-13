@@ -36,10 +36,10 @@ def blackjackgame(player, dealer, bet):
     player.draw(deck)
 
     # Show hands
-    print("Jakajan käsi:")
+    print("Dealer's hand:")
     dealer.showhand_beginning()
 
-    print("Kätesi:")
+    print("Your hand:")
     player.showhand()
 
     # If player gets 21, skip turn
