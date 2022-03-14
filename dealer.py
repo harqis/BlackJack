@@ -23,7 +23,7 @@ class Dealer:
         self.hand = []
 
     def showhand_beginning(self):
-        print("(Piilotettu kortti)")
+        print("(Hidden card)")
         self.hand[1].show()
 
     def showhand(self):
