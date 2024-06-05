@@ -2,7 +2,7 @@
 """
 Created on Wed Jan 19 19:01:04 2022
 
-@author: Tommi Kivinen
+
 """
 
 import random
