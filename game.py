@@ -2,7 +2,6 @@
 """
 Created on Wed Jan 19 19:05:26 2022
 
-@author: Tommi Kivinen
 """
 
 from deck import Deck
