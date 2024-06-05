@@ -2,7 +2,7 @@
 """
 Created on Wed Jan 19 19:05:03 2022
 
-@author: Tommi Kivinen
+
 """
 
 
